@@ -35,7 +35,7 @@ export default function HomePage() {
     },
     {
       id: 2,
-      title: "Pixel Fighters",
+      title: "Pong",
       description: "Classic 2D fighting game with retro pixel art style",
       image: "https://placehold.co/500x300/111827/FFFFFF?text=Pixel+Fighters",
       category: "Fighting",
@@ -46,7 +46,7 @@ export default function HomePage() {
     },
     {
       id: 3,
-      title: "Cosmic Invaders",
+      title: "Space Invaders",
       description: "Defend Earth from waves of alien invaders",
       image: "https://placehold.co/500x300/111827/FFFFFF?text=Cosmic+Invaders",
       category: "Shooter",

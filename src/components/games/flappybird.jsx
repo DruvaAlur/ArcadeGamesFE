@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 import { useEffect, useRef } from "react";
 
-export default function FlappyBird({ isGameRunning, onGameOver }) {
+export default function FlappyBird({ isGameRunning, onGameOver, updateScore }) {
   const gameRef = useRef(null);
   useEffect(() => {
     if (!isGameRunning) return;
@@ -13,8 +13,8 @@ export default function FlappyBird({ isGameRunning, onGameOver }) {
 
     const config = {
       type: Phaser.AUTO,
-      width: 400,
-      height: 600,
+      width: 1000,
+      height: 565,
       parent: gameRef.current,
       physics: {
         default: "arcade",
@@ -62,6 +62,7 @@ export default function FlappyBird({ isGameRunning, onGameOver }) {
           pipe.passed = true;
           score++;
           scoreText.setText(`Score: ${score}`);
+          updateScore(score);
         }
       });
 

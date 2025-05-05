@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import "./App.css";
 import { ThemeProvider } from "./components/theme-provider";
-import Game from "./components/game";
+import Game from "./pages/game";
+import GameOverPage from "./pages/GameOver";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/game" element={<Game />} />
+          <Route path="/gameover" element={<GameOverPage />} />
         </Routes>
       </Router>
     </ThemeProvider>
