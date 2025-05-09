@@ -22,7 +22,7 @@ export default function FlappyBird({ isGameRunning, onGameOver, updateScore }) {
       },
       audio: {
         disableWebAudio: false,
-        noAudio: false,
+        noAudio: true,
       },
       scene: {
         preload: preload,

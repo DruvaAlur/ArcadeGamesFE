@@ -20,6 +20,16 @@ export default function HomePage() {
     setIsLoaded(true);
   }, []);
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   const games = [
     {
       id: 1,
@@ -37,7 +47,7 @@ export default function HomePage() {
       id: 2,
       title: "Pong",
       description: "Classic 2D fighting game with retro pixel art style",
-      image: "https://placehold.co/500x300/111827/FFFFFF?text=Pixel+Fighters",
+      image: "/pong.png",
       category: "Fighting",
       rating: 4.5,
       players: "1-2",
@@ -48,45 +58,11 @@ export default function HomePage() {
       id: 3,
       title: "Space Invaders",
       description: "Defend Earth from waves of alien invaders",
-      image: "https://placehold.co/500x300/111827/FFFFFF?text=Cosmic+Invaders",
+      image: "/spaceInvaders.jpg",
       category: "Shooter",
       rating: 4.3,
       players: "1",
       releaseYear: 2023,
-      popular: false,
-    },
-    {
-      id: 4,
-      title: "Dungeon Crawler",
-      description:
-        "Explore procedurally generated dungeons filled with monsters",
-      image: "https://placehold.co/500x300/111827/FFFFFF?text=Dungeon+Crawler",
-      category: "RPG",
-      rating: 4.7,
-      players: "1-2",
-      releaseYear: 2022,
-      popular: false,
-    },
-    {
-      id: 5,
-      title: "Beat Master",
-      description: "Rhythm game with an extensive library of songs",
-      image: "https://placehold.co/500x300/111827/FFFFFF?text=Beat+Master",
-      category: "Rhythm",
-      rating: 4.6,
-      players: "1-4",
-      releaseYear: 2023,
-      popular: true,
-    },
-    {
-      id: 6,
-      title: "Puzzle Quest",
-      description: "Brain-teasing puzzles with increasing difficulty",
-      image: "https://placehold.co/500x300/111827/FFFFFF?text=Puzzle+Quest",
-      category: "Puzzle",
-      rating: 4.4,
-      players: "1",
-      releaseYear: 2022,
       popular: false,
     },
   ];
@@ -164,7 +140,7 @@ export default function HomePage() {
             <div className="absolute -inset-0.5 bg-gradient-pink-to-cyan rounded-lg blur opacity-75 animate-pulse-glow"></div>
             <div className="relative">
               <img
-                src="https://placehold.co/600x400/111827/FFFFFF?text=Featured+Game"
+                src="/assets/preview.png"
                 alt="Featured Arcade Game"
                 className="rounded-lg object-cover w-full h-auto shadow-2xl"
               />

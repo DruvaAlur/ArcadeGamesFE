@@ -5,18 +5,20 @@ import { Star, Trophy, Users, Clock, Gamepad2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { useNavigate } from "react-router-dom";
+import useIsMobile from "@/hooks/useIsMobile";
 
 export default function RotatingCard({ game, index }) {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
-
+  const isMobile = useIsMobile();
   return (
     <div
-      className="perspective-1000 w-full h-[400px]"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{ animationDelay: `${index * 0.1}s` }}
-    >
+     className="perspective-1000 w-full h-[400px]"
+     onMouseEnter={() => !isMobile && setIsHovered(true)}
+     onMouseLeave={() => !isMobile && setIsHovered(false)}
+     onClick={() => isMobile && setIsHovered((prev) => !prev)}
+     style={{ animationDelay: `${index * 0.1}s` }}
+   >
       <div
         className={`relative w-full h-full transition-all duration-500 preserve-3d ${
           isHovered ? "rotate-y-180" : ""
@@ -25,7 +27,7 @@ export default function RotatingCard({ game, index }) {
         {/* Front of card */}
         <div className="absolute w-full h-full backface-hidden">
           <div className="bg-gray-800/80 backdrop-blur-sm rounded-lg overflow-hidden game-card-hover group h-full">
-            <div className="relative h-48">
+            <div className="relative">
               <img
                 src={game.image || "/placeholder.svg"}
                 alt={game.title}
@@ -50,7 +52,7 @@ export default function RotatingCard({ game, index }) {
                   <span className="ml-1 text-sm">{game.rating}</span>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm mb-3">{game.description}</p>
+              {/* <p className="text-gray-400 text-sm mb-3">{game.description}</p> */}
               <div className="flex justify-between items-center text-xs text-gray-400">
                 <Badge
                   variant="outline"
@@ -72,7 +74,7 @@ export default function RotatingCard({ game, index }) {
             </div>
             <div className="px-4 pb-4 absolute bottom-0 w-full">
               <div className="text-center text-xs text-gray-400 mb-2">
-                Hover to see details
+                {isMobile?'Click to see details':'Hover to see details'}
               </div>
             </div>
           </div>

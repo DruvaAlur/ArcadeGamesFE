@@ -56,7 +56,12 @@ export default function Header() {
 
         {/* Sign in button (desktop) */}
         <div className="hidden md:block">
-          <Button className="bg-pink-600 hover:bg-pink-700 button-hover relative overflow-hidden">
+          <Button
+            className="bg-pink-600 hover:bg-pink-700 button-hover relative overflow-hidden"
+            onClick={() => {
+              window.location = "http://localhost:3000/api/auth/google";
+            }}
+          >
             <span className="relative z-10">Sign In</span>
           </Button>
         </div>
